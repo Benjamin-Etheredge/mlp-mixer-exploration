@@ -1,0 +1,13 @@
+schema: '2.0'
+stages:
+  meta_to_csv:
+    cmd: python src/convert_meta.py data/external/ILSVRC-2012/ILSVRC2012_devkit_t12/data/meta.mat
+      data/interim/meta.csv
+    deps:
+    - path: src/convert_meta.py
+      md5: ff70c248e3ba3c6d1e9f12d520fd3452
+      size: 781
+    outs:
+    - path: data/interim/meta.csv
+      md5: e30bd290d379cada19330d334189b294
+      size: 209036

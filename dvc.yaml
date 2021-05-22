@@ -1,0 +1,11 @@
+vars:
+  - meta_data: data/external/ILSVRC-2012/ILSVRC2012_devkit_t12/data/meta.mat
+  - meta_csv: data/interim/meta.csv
+stages:
+  meta_to_csv:
+    cmd: python src/convert_meta.py ${meta_data} ${meta_csv}
+    deps:
+      - src/convert_meta.py
+      # - ${meta_data}  ignoring this since data shouldn't change and it too large 
+    outs:
+      - ${meta_csv}
