@@ -1,6 +1,7 @@
 vars:
   - meta_data: data/external/ILSVRC-2012/ILSVRC2012_devkit_t12/data/meta.mat
   - meta_csv: data/interim/meta.csv
+  - train_data: data/external/ILSVRC-2012/train
 stages:
   meta_to_csv:
     cmd: python src/convert_meta.py ${meta_data} ${meta_csv}
@@ -9,3 +10,14 @@ stages:
       # - ${meta_data}  ignoring this since data shouldn't change and it too large 
     outs:
       - ${meta_csv}
+
+  train:
+    cmd: python src/train.py ${train_data} ${meta_csv}
+    deps:
+      - src/train.py
+      - ${meta_csv}
+    live:
+      metrics:
+        summary: true
+
+  
