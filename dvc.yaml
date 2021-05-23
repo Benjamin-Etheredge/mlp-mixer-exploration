@@ -3,19 +3,18 @@ vars:
   - meta_csv: data/interim/meta.csv
   - train_data: data/external/ILSVRC-2012/train
 stages:
-  meta_to_csv:
-    cmd: python src/convert_meta.py ${meta_data} ${meta_csv}
-    deps:
-      - src/convert_meta.py
-      # - ${meta_data}  ignoring this since data shouldn't change and it too large 
-    outs:
-      - ${meta_csv}
+  #meta_to_csv:
+    #cmd: python src/convert_meta.py ${meta_data} ${meta_csv}
+    #deps:
+      #- src/convert_meta.py
+      ## - ${meta_data}  ignoring this since data shouldn't change and it too large 
+    #outs:
+      #- ${meta_csv}
 
   train:
-    cmd: python src/train.py ${train_data} ${meta_csv}
+    cmd: python src/train.py 
     deps:
       - src/train.py
-      - ${meta_csv}
     live:
       metrics:
         summary: true

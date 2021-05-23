@@ -8,10 +8,10 @@ from dvclive.keras import DvcLiveCallback
 
 
 @click.command()
-@click.argument('data-path')
-@click.argument('meta-path')
-@click.option('--batch-size', default=256)
-def main(data_path, meta_path, batch_size):
+#@click.argument('data-path')
+#@click.argument('meta-path')
+#@click.option('--batch-size', default=256)
+def main():
     # TODO probably messes up softmax final layers
     # TODO update library to cast softmax layer with float32
     tf.keras.mixed_precision.set_global_policy('mixed_float16')
