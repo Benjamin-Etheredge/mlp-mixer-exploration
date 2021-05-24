@@ -11,3 +11,17 @@ stages:
     - path: data/interim/meta.csv
       md5: e30bd290d379cada19330d334189b294
       size: 209036
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: src/train.py
+      md5: 14e10c73e94ece83196f7f3032ce8a6e
+      size: 2369
+    outs:
+    - path: metrics
+      md5: 1133f2a3c95b52d40bb0d5c7d8e47746.dir
+      size: 3003
+      nfiles: 4
+    - path: metrics.json
+      md5: c66b6b2f78e142bbf06da234f8f934d3
+      size: 152

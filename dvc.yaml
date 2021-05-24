@@ -15,8 +15,12 @@ stages:
     cmd: python src/train.py 
     deps:
       - src/train.py
-    live:
-      metrics:
-        summary: true
+    plots:
+      - metrics
+    metrics:
+      - metrics.json
+    #live:
+      #metrics:
+        #summary: true
 
   
